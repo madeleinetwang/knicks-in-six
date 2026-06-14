@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Basketball } from "./Basketball";
 import { Sticker } from "./Sticker";
-import { Annotation } from "./Annotation";
 import { Marquee } from "./Marquee";
 import { MARQUEE_PHRASES, META } from "@/data/model";
 
@@ -36,9 +35,6 @@ export function Hero() {
             <div className="mb-5 flex flex-wrap items-center gap-3">
               <Sticker color="orange" rotate={-5}>
                 Predictive Model
-              </Sticker>
-              <Sticker color="cream" rotate={3}>
-                Data Zine
               </Sticker>
             </div>
 
@@ -103,12 +99,6 @@ export function Hero() {
             >
               <Basketball size={300} className="drop-shadow-[8px_10px_0_rgba(0,0,0,0.35)]" />
             </motion.div>
-            <Annotation
-              className="absolute -left-2 top-2 text-cream"
-              rotate={-8}
-            >
-              ← it spins, obviously
-            </Annotation>
             <div className="absolute -bottom-2 right-0">
               <Sticker color="ink" rotate={6}>
                 +6.4 net rtg
