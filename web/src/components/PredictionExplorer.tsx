@@ -116,7 +116,7 @@ export function PredictionExplorer() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[2.2fr_1fr]">
-          <BrowserFrame title={`win-probability — ${SCENARIOS[scenario].label.toLowerCase()}.chart`}>
+          <BrowserFrame title={`win-probability-${SCENARIOS[scenario].label.toLowerCase()}.chart`}>
             <div className="relative p-4 pt-6 md:p-6">
               <div className="absolute right-5 top-5 z-10">
                 <ProvenanceTag src={WIN_PROB_SERIES.src} />
@@ -229,11 +229,11 @@ export function PredictionExplorer() {
               <ul className="mt-3 space-y-3 font-body text-sm leading-snug">
                 <li className="flex gap-2">
                   <span className="font-display text-royal">G6</span>
-                  back at MSG — the model&rsquo;s clear edge (67%).
+                  back at MSG: the model&rsquo;s clear edge (67%).
                 </li>
                 <li className="flex gap-2">
                   <span className="font-display text-orange">G5/G7</span>
-                  road games at SAS — home court flips it.
+                  road games at SAS: home court flips it.
                 </li>
                 <li className="flex gap-2">
                   <span className="font-display text-ink">50%</span>

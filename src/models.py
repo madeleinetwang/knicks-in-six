@@ -59,10 +59,10 @@ def train_baseline(train: pd.DataFrame) -> Pipeline:
     return model
 
 
-def train_calibrated(train: pd.DataFrame, method: str = "isotonic") -> CalibratedClassifierCV:
-    """Same baseline, wrapped in cross-validated probability calibration."""
+def train_calibrated(train: pd.DataFrame, estimator=None, method: str = "isotonic") -> CalibratedClassifierCV:
+    """Wrap an estimator (default: the logistic baseline) in cross-validated calibration."""
     X, y = _xy(train)
-    cal = CalibratedClassifierCV(make_baseline(), method=method, cv=5)
+    cal = CalibratedClassifierCV(estimator or make_baseline(), method=method, cv=5)
     cal.fit(X, y)
     return cal
 
@@ -121,6 +121,25 @@ def reliability_table(model, test: pd.DataFrame, bins: int = 10) -> pd.DataFrame
 
 # ----------------------------------------------------------- model zoo
 
+def make_random_forest() -> RandomForestClassifier:
+    """The random forest config used both in the model comparison and as the final model."""
+    return RandomForestClassifier(
+        n_estimators=400, max_depth=6, min_samples_leaf=20, random_state=0, n_jobs=-1
+    )
+
+
+def train_random_forest(train: pd.DataFrame) -> RandomForestClassifier:
+    model = make_random_forest()
+    X, y = _xy(train)
+    model.fit(X, y)
+    return model
+
+
+def feature_importances(model: RandomForestClassifier) -> pd.Series:
+    """Random forest impurity-based feature importances, sorted descending."""
+    return pd.Series(model.feature_importances_, index=FEATURE_COLS).sort_values(ascending=False)
+
+
 def make_models() -> dict:
     """Candidate classifiers to compare on the same time split.
 
@@ -130,9 +149,7 @@ def make_models() -> dict:
     """
     models: dict[str, object] = {
         "logistic regression": make_baseline(),
-        "random forest": RandomForestClassifier(
-            n_estimators=400, max_depth=6, min_samples_leaf=20, random_state=0, n_jobs=-1
-        ),
+        "random forest": make_random_forest(),
         "gradient boosting": GradientBoostingClassifier(
             n_estimators=300, max_depth=3, learning_rate=0.03, random_state=0
         ),

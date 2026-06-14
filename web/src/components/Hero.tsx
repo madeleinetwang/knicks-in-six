@@ -67,7 +67,7 @@ export function Hero() {
 
             <div className="mt-6 max-w-md">
               <p className="font-body text-base leading-relaxed text-cream/85 md:text-lg">
-                A predictive model analyzing the {META.teamShort}&rsquo; performance —
+                A predictive model analyzing the {META.teamShort}&rsquo; performance:
                 win probability, player impact, and where the season is headed.
                 Half analytics report, half sports zine.
               </p>

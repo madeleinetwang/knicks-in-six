@@ -28,7 +28,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Knicks Model Report — What The Model Thinks",
+  title: "Knicks Model Report: What The Model Thinks",
   description:
     "A predictive model analyzing New York Knicks performance: win probability, player impact, and future outcomes. A basketball analytics report turned into a zine.",
 };

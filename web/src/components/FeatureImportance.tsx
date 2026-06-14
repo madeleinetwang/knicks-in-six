@@ -77,7 +77,7 @@ export function FeatureImportance() {
           </div>
           <p className="mt-6 font-body text-xs uppercase tracking-widest text-ink/50">
             Standardized logistic coefficients, scaled 0–100. Era-normalized
-            win% difference carries the loudest signal — being the better team
+            win% difference carries the loudest signal: being the better team
             still matters most.
           </p>
         </div>

@@ -31,7 +31,7 @@ export function ScoutingNotes() {
             </h2>
           </div>
           <p className="max-w-sm font-body text-sm leading-relaxed text-cream/70">
-            The model, in plain English — straight off the coach&rsquo;s
+            The model, in plain English, straight off the coach&rsquo;s
             clipboard. No academic jargon, just what it does and where it
             slips.
           </p>

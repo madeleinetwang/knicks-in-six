@@ -42,7 +42,7 @@ export function KeyFindings() {
           </div>
           <p className="max-w-sm font-body text-sm leading-relaxed text-ink/70">
             Five takeaways from the model, served like trading cards. Numbers
-            count up as you scroll — flip through the season at a glance.
+            count up as you scroll, then flip through the season at a glance.
           </p>
         </div>
 

@@ -8,7 +8,7 @@ export function ProvenanceTag({ src }: { src: Provenance }) {
       title={
         real
           ? "Real value from cached 2025-26 nba_api data"
-          : "Placeholder — swap in real model output once trained"
+          : "Placeholder: swap in real model output once trained"
       }
       className={`inline-flex items-center gap-1 font-grotesk text-[9px] font-bold uppercase tracking-widest ${
         real ? "text-royal" : "text-orange"
