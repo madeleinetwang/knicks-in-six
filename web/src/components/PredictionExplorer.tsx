@@ -18,9 +18,9 @@ import { ProvenanceTag } from "./ProvenanceTag";
 import { WIN_PROB_SERIES, SERIES_OUTCOME } from "@/data/model";
 
 const SCENARIOS = {
-  base: { label: "Base", shift: 0, note: "model's default read" },
-  hot: { label: "Hot Hand", shift: 9, note: "shooting variance up" },
-  grind: { label: "Grind It Out", shift: -7, note: "low-scoring, defensive" },
+  base: { label: "Base Case", shift: 0, note: "model's central estimate" },
+  hot: { label: "Shooting Upswing", shift: 9, note: "above-average shooting efficiency" },
+  grind: { label: "Defensive Slowdown", shift: -7, note: "below-average pace and scoring" },
 } as const;
 
 type ScenarioKey = keyof typeof SCENARIOS;
@@ -80,9 +80,9 @@ export function PredictionExplorer() {
               Section 02
             </Sticker>
             <h2 className="mt-4 font-display text-6xl leading-[0.85] tracking-tight md:text-8xl">
-              SPIN THE
+              ADJUST THE
               <br />
-              <span className="text-orange">MODEL</span>
+              <span className="text-orange">SCENARIO</span>
             </h2>
           </div>
           <p className="max-w-sm font-body text-sm leading-relaxed text-cream/75">
@@ -116,7 +116,7 @@ export function PredictionExplorer() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[2.2fr_1fr]">
-          <BrowserFrame title={`win-probability-${SCENARIOS[scenario].label.toLowerCase()}.chart`}>
+          <BrowserFrame title={`win-probability-${SCENARIOS[scenario].label.toLowerCase().replace(/\s+/g, "-")}.chart`}>
             <div className="relative p-4 pt-6 md:p-6">
               <div className="absolute right-5 top-5 z-10">
                 <ProvenanceTag src={WIN_PROB_SERIES.src} />

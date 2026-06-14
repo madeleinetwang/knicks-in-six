@@ -49,7 +49,7 @@ export function FeatureImportance() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="font-grotesk text-lg font-extrabold uppercase tracking-tight">
-                      {f.metaphor}
+                      {f.label}
                     </span>
                     <span className="font-hand text-xl text-royal">
                       ({f.feature})

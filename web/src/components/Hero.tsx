@@ -69,7 +69,7 @@ export function Hero() {
               <p className="font-body text-base leading-relaxed text-cream/85 md:text-lg">
                 A predictive model analyzing the {META.teamShort}&rsquo; performance:
                 win probability, player impact, and where the season is headed.
-                Half analytics report, half sports zine.
+                A breakdown of the model&rsquo;s inputs, accuracy, and 2026 Finals projection.
               </p>
             </div>
 
@@ -86,7 +86,7 @@ export function Hero() {
                 href="#predict"
                 className="font-grotesk text-sm font-bold uppercase tracking-widest text-cream/80 underline-offset-4 hover:underline"
               >
-                Spin the model
+                Explore the scenarios
               </a>
             </div>
           </div>

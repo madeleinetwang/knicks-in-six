@@ -62,7 +62,9 @@ def train_baseline(train: pd.DataFrame) -> Pipeline:
 def train_calibrated(train: pd.DataFrame, estimator=None, method: str = "isotonic") -> CalibratedClassifierCV:
     """Wrap an estimator (default: the logistic baseline) in cross-validated calibration."""
     X, y = _xy(train)
-    cal = CalibratedClassifierCV(estimator or make_baseline(), method=method, cv=5)
+    if estimator is None:
+        estimator = make_baseline()
+    cal = CalibratedClassifierCV(estimator, method=method, cv=5)
     cal.fit(X, y)
     return cal
 
